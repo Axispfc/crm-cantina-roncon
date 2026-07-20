@@ -1,24 +1,28 @@
 /* =========================================================
-   CONFIGURAÇÕES GERAIS
+   CORES
 ========================================================= */
 
 :root {
-  --vermelho: #8f1f1f;
-  --vermelho-escuro: #671515;
-  --vermelho-claro: #a72a29;
+  --vermelho: #921f23;
+  --vermelho-escuro: #70171a;
+  --vermelho-claro: #a9282b;
 
-  --verde: #174d38;
-  --verde-claro: #27654c;
+  --verde: #16513c;
+  --verde-claro: #217058;
 
-  --dourado: #c99543;
-  --dourado-claro: #e1bd75;
+  --dourado: #c99542;
+  --dourado-claro: #e4bd73;
 
-  --creme: #f8f0df;
-  --creme-claro: #fffaf0;
+  --creme: #fff9ed;
+  --creme-escuro: #f5ead4;
 
-  --texto: #183f30;
   --branco: #ffffff;
+  --texto: #16513c;
 }
+
+/* =========================================================
+   RESET
+========================================================= */
 
 * {
   margin: 0;
@@ -32,6 +36,8 @@ html {
 
 body {
   min-height: 100vh;
+  overflow-x: hidden;
+
   font-family: Arial, Helvetica, sans-serif;
   background: var(--creme);
   color: var(--texto);
@@ -43,45 +49,49 @@ a {
 }
 
 /* =========================================================
-   PÁGINA
+   PÁGINA PRINCIPAL
 ========================================================= */
 
 .pagina-inicial {
   position: relative;
+
+  width: 100%;
   min-height: 100vh;
-  overflow: hidden;
 
   display: flex;
   flex-direction: column;
 
+  overflow: hidden;
+
   background:
     linear-gradient(
-      rgba(255, 250, 240, 0.91),
-      rgba(255, 250, 240, 0.95)
+      rgba(255, 249, 237, 0.94),
+      rgba(255, 249, 237, 0.97)
     ),
     radial-gradient(
       circle at center,
       #ffffff 0%,
       var(--creme) 65%,
-      #eadabf 100%
+      var(--creme-escuro) 100%
     );
 }
 
 .pagina-inicial::before {
   content: "";
+
   position: absolute;
   inset: 0;
 
   background:
     radial-gradient(
-      circle at 15% 35%,
-      rgba(201, 149, 67, 0.09),
-      transparent 35%
+      circle at 10% 25%,
+      rgba(201, 149, 66, 0.08),
+      transparent 30%
     ),
     radial-gradient(
       circle at 90% 65%,
-      rgba(143, 31, 31, 0.07),
-      transparent 35%
+      rgba(146, 31, 35, 0.05),
+      transparent 30%
     );
 
   pointer-events: none;
@@ -93,21 +103,25 @@ a {
 
 .decoracao {
   position: absolute;
-  top: -55px;
-  width: 310px;
-  height: 190px;
-  opacity: 0.18;
+  top: -50px;
+
+  width: 240px;
+  height: 150px;
+
+  opacity: 0.12;
   pointer-events: none;
 }
 
 .decoracao::before,
 .decoracao::after {
   content: "";
-  position: absolute;
-  width: 250px;
-  height: 90px;
 
-  border: 17px solid var(--dourado);
+  position: absolute;
+
+  width: 205px;
+  height: 70px;
+
+  border: 13px solid var(--dourado);
   border-left-color: transparent;
   border-right-color: transparent;
   border-bottom-color: transparent;
@@ -116,35 +130,37 @@ a {
 }
 
 .decoracao::after {
-  top: 55px;
-  left: 30px;
+  top: 42px;
+  left: 25px;
 }
 
 .decoracao-superior-esquerda {
   left: -65px;
-  transform: rotate(-12deg);
+  transform: rotate(-10deg);
 }
 
 .decoracao-superior-direita {
   right: -65px;
-  transform: scaleX(-1) rotate(-12deg);
+  transform: scaleX(-1) rotate(-10deg);
 }
 
 /* =========================================================
-   CONTEÚDO PRINCIPAL
+   CONTEÚDO
 ========================================================= */
 
 .conteudo {
   position: relative;
   z-index: 2;
 
-  width: min(100%, 720px);
+  width: 100%;
+  max-width: 680px;
+
   margin: 0 auto;
-  padding: 55px 22px 180px;
+  padding: 42px 22px 55px;
 }
 
 /* =========================================================
-   CABEÇALHO E LOGO
+   CABEÇALHO
 ========================================================= */
 
 .cabecalho {
@@ -154,7 +170,9 @@ a {
 }
 
 .logo-cantina {
-  width: clamp(230px, 62vw, 350px);
+  width: 285px;
+  max-width: 78vw;
+
   aspect-ratio: 1 / 1;
 
   display: flex;
@@ -168,158 +186,197 @@ a {
   width: 100%;
   height: 100%;
 
-  border: 8px solid var(--vermelho);
-  border-radius: 50%;
-
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  background: rgba(255, 250, 240, 0.86);
+  border: 6px solid var(--vermelho);
+  border-radius: 50%;
+
+  background: rgba(255, 249, 237, 0.95);
 
   box-shadow:
-    0 15px 35px rgba(73, 35, 22, 0.12),
-    inset 0 0 0 6px var(--creme-claro),
-    inset 0 0 0 9px var(--vermelho);
+    inset 0 0 0 5px var(--creme),
+    inset 0 0 0 8px var(--vermelho);
+}
+
+/* =========================================================
+   TEXTO DA LOGO
+========================================================= */
+
+.logo-nome {
+  position: absolute;
+
+  width: 100%;
+
+  color: var(--verde);
+
+  font-size: clamp(30px, 8vw, 42px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 5px;
+  text-align: center;
+}
+
+.logo-nome-superior {
+  top: 58px;
+}
+
+.logo-nome-inferior {
+  bottom: 52px;
 }
 
 .logo-circulo::before,
 .logo-circulo::after {
   content: "★";
+
   position: absolute;
-  top: 47%;
+  top: 46%;
+
+  transform: translateY(-50%);
 
   color: var(--dourado);
-  font-size: 27px;
+  font-size: 24px;
 }
 
 .logo-circulo::before {
-  left: 25px;
+  left: 22px;
 }
 
 .logo-circulo::after {
-  right: 25px;
+  right: 22px;
 }
 
-.logo-nome {
-  position: absolute;
-
-  color: var(--verde);
-  font-size: clamp(31px, 8vw, 48px);
-  font-weight: 800;
-  letter-spacing: 5px;
-}
-
-.logo-nome-superior {
-  top: 52px;
-}
-
-.logo-nome-inferior {
-  bottom: 47px;
-}
+/* =========================================================
+   PANELA
+========================================================= */
 
 .logo-centro {
+  position: relative;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  margin-top: 2px;
 }
 
 .vapor {
-  margin-bottom: -5px;
+  position: relative;
+  z-index: 3;
+
+  margin-bottom: -4px;
 
   color: var(--vermelho);
-  font-size: 48px;
+  font-size: 43px;
   line-height: 1;
 }
 
 .panela {
   position: relative;
 
-  width: 105px;
-  height: 55px;
+  width: 96px;
+  height: 52px;
 
-  border-radius: 10px 10px 25px 25px;
+  border-radius: 8px 8px 24px 24px;
+
   background: var(--vermelho);
 }
 
 .panela::before {
   content: "";
-  position: absolute;
-  top: -9px;
-  left: 15px;
 
-  width: 75px;
-  height: 10px;
+  position: absolute;
+  top: -8px;
+  left: 14px;
+
+  width: 68px;
+  height: 9px;
 
   border-radius: 20px;
+
   background: var(--vermelho);
 }
 
 .panela::after {
   content: "";
-  position: absolute;
-  top: 13px;
-  left: -20px;
 
-  width: 145px;
-  height: 13px;
+  position: absolute;
+  top: 12px;
+  left: -18px;
+
+  width: 132px;
+  height: 12px;
 
   border-radius: 20px;
+
   background: var(--vermelho);
 }
 
 .coracao {
   position: absolute;
-  z-index: 2;
-  left: 50%;
+  z-index: 4;
+
   top: 23px;
+  left: 50%;
 
   transform: translateX(-50%);
 
   color: var(--dourado);
-  font-size: 23px;
+  font-size: 21px;
 }
+
+/* =========================================================
+   SLOGAN
+========================================================= */
 
 .slogan {
   margin-top: 18px;
 
   display: flex;
   align-items: center;
-  gap: 18px;
+  justify-content: center;
+  gap: 12px;
 
   color: var(--verde);
-  font-size: clamp(14px, 4vw, 19px);
+
+  font-size: clamp(13px, 3.5vw, 18px);
   font-weight: 700;
-  letter-spacing: 7px;
+  line-height: 1.4;
+  letter-spacing: 5px;
   text-align: center;
 }
 
 .slogan span {
+  flex-shrink: 0;
+
   color: var(--dourado);
   letter-spacing: 0;
 }
 
 /* =========================================================
-   BOTÃO DE PEDIDO
+   BOTÃO PRINCIPAL
 ========================================================= */
 
 .area-pedido {
-  margin-top: 65px;
+  width: 100%;
+  margin-top: 54px;
 }
 
 .botao-pedido {
   position: relative;
 
-  min-height: 145px;
-  padding: 30px 75px;
+  width: 100%;
+  min-height: 130px;
+
+  padding: 36px 62px 30px 28px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   border: 5px solid var(--dourado);
-  border-radius: 35px;
+  border-radius: 30px;
 
   background:
     linear-gradient(
@@ -331,22 +388,16 @@ a {
   color: var(--branco);
 
   box-shadow:
-    0 14px 26px rgba(103, 21, 21, 0.24),
+    0 14px 25px rgba(112, 23, 26, 0.23),
     inset 0 0 0 4px var(--vermelho);
 
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    filter 0.25s ease;
+    transform 0.2s ease,
+    filter 0.2s ease;
 }
 
 .botao-pedido:hover {
-  transform: translateY(-4px);
-
-  box-shadow:
-    0 19px 35px rgba(103, 21, 21, 0.32),
-    inset 0 0 0 4px var(--vermelho);
-
+  transform: translateY(-3px);
   filter: brightness(1.05);
 }
 
@@ -355,10 +406,12 @@ a {
 }
 
 .texto-botao {
-  font-size: clamp(22px, 5.7vw, 38px);
+  width: 100%;
+
+  font-size: clamp(24px, 6vw, 36px);
   font-weight: 800;
+  line-height: 1.12;
   text-align: center;
-  line-height: 1.15;
 }
 
 .icone-prato {
@@ -366,8 +419,8 @@ a {
   top: -34px;
   left: 50%;
 
-  width: 67px;
-  height: 67px;
+  width: 68px;
+  height: 68px;
 
   transform: translateX(-50%);
 
@@ -378,18 +431,22 @@ a {
   border: 5px solid var(--dourado);
   border-radius: 50%;
 
-  background: var(--creme-claro);
+  background: var(--creme);
   color: var(--dourado);
 
-  font-size: 28px;
+  font-size: 29px;
 }
 
 .seta-botao {
   position: absolute;
-  right: 28px;
+  right: 22px;
+  top: 50%;
+
+  transform: translateY(-50%);
 
   color: var(--dourado-claro);
-  font-size: 75px;
+
+  font-size: 68px;
   font-weight: 300;
   line-height: 1;
 }
@@ -399,21 +456,22 @@ a {
 ========================================================= */
 
 .informacoes {
+  width: 100%;
   margin-top: 55px;
-  padding: 0 12px;
 }
 
 .informacao-item {
-  display: flex;
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
   align-items: center;
-  gap: 24px;
+  gap: 20px;
 }
 
 .icone-informacao {
-  flex: 0 0 66px;
-
-  width: 66px;
-  height: 66px;
+  width: 64px;
+  height: 64px;
 
   display: flex;
   align-items: center;
@@ -428,41 +486,49 @@ a {
       var(--verde)
     );
 
-  box-shadow: 0 8px 20px rgba(23, 77, 56, 0.18);
+  box-shadow: 0 8px 18px rgba(22, 81, 60, 0.17);
 }
 
 .icone-informacao svg {
-  width: 34px;
-  height: 34px;
+  width: 33px;
+  height: 33px;
+
   fill: var(--branco);
 }
 
 .informacao-texto {
+  min-width: 0;
+
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 7px;
 }
 
 .rotulo {
   color: var(--dourado);
-  font-size: 12px;
+
+  font-size: clamp(12px, 3vw, 16px);
   font-weight: 800;
+  line-height: 1.4;
   letter-spacing: 3px;
 }
 
 .telefones {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  align-items: center;
+  column-gap: 7px;
+  row-gap: 3px;
 
   color: var(--verde);
-  font-size: clamp(19px, 4.9vw, 30px);
+
+  font-size: clamp(20px, 5vw, 28px);
   font-weight: 800;
+  line-height: 1.35;
 }
 
-.telefones a,
-.endereco {
-  transition: color 0.2s ease;
+.telefones a {
+  white-space: nowrap;
 }
 
 .telefones a:hover,
@@ -471,36 +537,40 @@ a {
 }
 
 .endereco {
+  min-width: 0;
+
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
 
   color: var(--verde);
 }
 
 .endereco strong {
-  font-size: clamp(24px, 5vw, 32px);
+  font-size: clamp(23px, 5.5vw, 31px);
+  line-height: 1.2;
   text-transform: uppercase;
 }
 
 .endereco span {
-  font-size: clamp(18px, 4.3vw, 25px);
+  font-size: clamp(18px, 4.5vw, 25px);
+  line-height: 1.35;
 }
 
 .linha-divisoria {
-  width: calc(100% - 90px);
+  width: calc(100% - 84px);
   height: 1px;
 
-  margin: 32px 0 32px 90px;
+  margin: 31px 0 31px 84px;
 
   background:
     linear-gradient(
       to right,
       var(--dourado),
-      transparent
+      rgba(201, 149, 66, 0.05)
     );
 
-  opacity: 0.55;
+  opacity: 0.65;
 }
 
 /* =========================================================
@@ -508,18 +578,21 @@ a {
 ========================================================= */
 
 .rodape {
-  position: absolute;
+  position: relative;
   z-index: 3;
-  left: 0;
-  bottom: 0;
+
+  flex-shrink: 0;
 
   width: 100%;
-  height: 135px;
+  min-height: 145px;
+
+  margin-top: auto;
 
   display: flex;
   justify-content: center;
 
   border-top: 5px solid var(--dourado);
+  border-radius: 50% 50% 0 0 / 24px 24px 0 0;
 
   background:
     linear-gradient(
@@ -527,75 +600,80 @@ a {
       var(--vermelho-escuro),
       var(--vermelho)
     );
-
-  border-radius: 50% 50% 0 0 / 25% 25% 0 0;
 }
 
 .selo {
-  position: absolute;
-  top: -58px;
+  position: relative;
 
-  width: 118px;
-  height: 118px;
+  width: 116px;
+  height: 116px;
 
-  border: 5px solid var(--dourado);
-  border-radius: 50%;
+  margin-top: -54px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
+  border: 5px solid var(--dourado);
+  border-radius: 50%;
+
   background: var(--vermelho);
   color: var(--dourado-claro);
+
   text-align: center;
 
   box-shadow:
-    0 8px 22px rgba(78, 17, 17, 0.24),
+    0 8px 20px rgba(78, 17, 17, 0.22),
     inset 0 0 0 3px var(--vermelho),
     inset 0 0 0 5px var(--dourado);
 }
 
 .selo span {
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 700;
   letter-spacing: 1px;
 }
 
 .selo strong {
   margin: 5px 0;
-  font-size: 31px;
+
+  font-size: 30px;
+  line-height: 1;
 }
 
 .selo small {
   font-size: 8px;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
 }
 
 /* =========================================================
-   RESPONSIVIDADE
+   CELULARES
 ========================================================= */
 
 @media (max-width: 600px) {
 
   .conteudo {
-    padding:
-      45px
-      18px
-      175px;
+    padding: 32px 18px 70px;
   }
 
-  .logo-circulo {
-    border-width: 6px;
+  .logo-cantina {
+    width: 260px;
+    max-width: 76vw;
+  }
+
+  .logo-nome {
+    font-size: clamp(27px, 8vw, 37px);
+    letter-spacing: 4px;
   }
 
   .logo-nome-superior {
-    top: 42px;
+    top: 52px;
   }
 
   .logo-nome-inferior {
-    bottom: 38px;
+    bottom: 47px;
   }
 
   .logo-circulo::before {
@@ -612,40 +690,42 @@ a {
   }
 
   .area-pedido {
-    margin-top: 58px;
+    margin-top: 49px;
   }
 
   .botao-pedido {
-    min-height: 125px;
+    min-height: 120px;
+
     padding:
-      25px
-      55px
-      25px
-      28px;
+      34px
+      53px
+      27px
+      20px;
 
     border-radius: 27px;
   }
 
+  .texto-botao {
+    font-size: clamp(22px, 6.5vw, 31px);
+  }
+
   .seta-botao {
-    right: 17px;
-    font-size: 58px;
+    right: 16px;
+    font-size: 59px;
   }
 
   .informacoes {
-    margin-top: 45px;
-    padding: 0;
+    margin-top: 48px;
   }
 
   .informacao-item {
-    align-items: flex-start;
+    grid-template-columns: 58px minmax(0, 1fr);
     gap: 16px;
   }
 
   .icone-informacao {
-    flex-basis: 55px;
-
-    width: 55px;
-    height: 55px;
+    width: 58px;
+    height: 58px;
   }
 
   .icone-informacao svg {
@@ -654,21 +734,58 @@ a {
   }
 
   .linha-divisoria {
-    width: calc(100% - 71px);
-    margin-left: 71px;
+    width: calc(100% - 74px);
+    margin-left: 74px;
   }
 
-  .telefones {
-    gap: 5px;
+  .rodape {
+    min-height: 125px;
+  }
+
+  .selo {
+    width: 108px;
+    height: 108px;
+
+    margin-top: -48px;
   }
 
 }
 
-@media (max-width: 390px) {
+/* =========================================================
+   CELULARES PEQUENOS
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .conteudo {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .logo-cantina {
+    width: 235px;
+  }
+
+  .logo-nome {
+    font-size: 27px;
+    letter-spacing: 3px;
+  }
+
+  .logo-nome-superior {
+    top: 47px;
+  }
+
+  .logo-nome-inferior {
+    bottom: 43px;
+  }
+
+  .logo-centro {
+    transform: scale(0.88);
+  }
 
   .logo-circulo::before,
   .logo-circulo::after {
-    font-size: 21px;
+    font-size: 19px;
   }
 
   .logo-circulo::before {
@@ -679,22 +796,33 @@ a {
     right: 14px;
   }
 
-  .panela {
-    transform: scale(0.85);
-  }
-
   .slogan {
     font-size: 12px;
     letter-spacing: 3px;
   }
 
   .botao-pedido {
-    padding-left: 20px;
-    padding-right: 48px;
+    padding-left: 16px;
+    padding-right: 46px;
   }
 
   .informacao-item {
+    grid-template-columns: 52px minmax(0, 1fr);
     gap: 13px;
+  }
+
+  .icone-informacao {
+    width: 52px;
+    height: 52px;
+  }
+
+  .linha-divisoria {
+    width: calc(100% - 65px);
+    margin-left: 65px;
+  }
+
+  .rotulo {
+    letter-spacing: 2px;
   }
 
 }
