@@ -7,13 +7,13 @@
 const OPCOES = {
   tradicional: [
     {
-      id: "tradicional",
-      nome: "Tradicional",
+      id: "media",
+      nome: "Média",
       preco: 24
     },
     {
-      id: "pequeno",
-      nome: "Pequeno",
+      id: "pequena",
+      nome: "Pequena",
       preco: 21
     },
     {
@@ -25,13 +25,13 @@ const OPCOES = {
 
   premium: [
     {
-      id: "tradicional",
-      nome: "Tradicional",
+      id: "media",
+      nome: "Média",
       preco: 26
     },
     {
-      id: "pequeno",
-      nome: "Pequeno",
+      id: "pequena",
+      nome: "Pequena",
       preco: 23
     },
     {
@@ -43,8 +43,8 @@ const OPCOES = {
 
   feijoada: [
     {
-      id: "tradicional",
-      nome: "Tradicional",
+      id: "media",
+      nome: "Média",
       preco: 28
     },
     {
@@ -145,8 +145,8 @@ const pratosPorDia = {
       "Arroz, feijão tropeiro, bisteca, linguiça, couve refogada, banana empanada, ovo frito, torresmo e salada.",
       [
         {
-          id: "tradicional",
-          nome: "Tradicional",
+          id: "media",
+          nome: "Média",
           preco: 26
         }
       ]
@@ -167,13 +167,13 @@ const pratosPorDia = {
       "Arroz, feijão branco, dobradinha e salada, com opção de farofa ou legume refogado.",
       [
         {
-          id: "tradicional",
-          nome: "Tradicional",
+          id: "media",
+          nome: "Média",
           preco: 24
         },
         {
-          id: "pequeno",
-          nome: "Pequeno",
+          id: "pequena",
+          nome: "Pequena",
           preco: 21
         }
       ]
@@ -208,13 +208,13 @@ const pratosPorDia = {
       `Bife à rolê. ${descricaoBase}`,
       [
         {
-          id: "tradicional",
-          nome: "Tradicional",
+          id: "media",
+          nome: "Média",
           preco: 26
         },
         {
-          id: "pequeno",
-          nome: "Pequeno",
+          id: "pequena",
+          nome: "Pequena",
           preco: 23
         }
       ]
@@ -247,13 +247,13 @@ const pratosPorDia = {
       `Rabada. ${descricaoBase}`,
       [
         {
-          id: "tradicional",
-          nome: "Tradicional",
+          id: "media",
+          nome: "Média",
           preco: 26
         },
         {
-          id: "pequeno",
-          nome: "Pequeno",
+          id: "pequena",
+          nome: "Pequena",
           preco: 23
         }
       ]
@@ -274,8 +274,8 @@ const pratosPorDia = {
       "Arroz, feijão, lasanha de carne à bolonhesa e salada.",
       [
         {
-          id: "tradicional",
-          nome: "Tradicional",
+          id: "media",
+          nome: "Média",
           preco: 27
         }
       ]
@@ -287,13 +287,13 @@ const pratosPorDia = {
       "Arroz, macarrão com almôndegas, salada e guarnição de batata frita ou purê de batata.",
       [
         {
-          id: "tradicional",
-          nome: "Tradicional",
+          id: "media",
+          nome: "Média",
           preco: 24
         },
         {
-          id: "pequeno",
-          nome: "Pequeno",
+          id: "pequena",
+          nome: "Pequena",
           preco: 21
         }
       ]
@@ -312,13 +312,13 @@ const pratosPorDia = {
       "Arroz, rondelli de presunto e queijo ao molho branco, salada e guarnição de batata frita ou purê de batata.",
       [
         {
-          id: "tradicional",
-          nome: "Tradicional",
+          id: "media",
+          nome: "Média",
           preco: 24
         },
         {
-          id: "pequeno",
-          nome: "Pequeno",
+          id: "pequena",
+          nome: "Pequena",
           preco: 21
         }
       ]
@@ -348,13 +348,13 @@ const pratosPorDia = {
       `Costela bovina assada no bafo. ${descricaoBase}`,
       [
         {
-          id: "tradicional",
-          nome: "Tradicional",
+          id: "media",
+          nome: "Média",
           preco: 26
         },
         {
-          id: "pequeno",
-          nome: "Pequeno",
+          id: "pequena",
+          nome: "Pequena",
           preco: 23
         }
       ]
@@ -373,8 +373,8 @@ const pratosPorDia = {
       "Arroz, escondidinho de carne seca, salada e guarnição de batata frita ou purê de batata.",
       [
         {
-          id: "tradicional",
-          nome: "Tradicional",
+          id: "media",
+          nome: "Média",
           preco: 26
         }
       ]
@@ -386,8 +386,8 @@ const pratosPorDia = {
       "Arroz, escondidinho de frango, salada e guarnição de batata frita ou purê de batata.",
       [
         {
-          id: "tradicional",
-          nome: "Tradicional",
+          id: "media",
+          nome: "Média",
           preco: 26
         }
       ]
