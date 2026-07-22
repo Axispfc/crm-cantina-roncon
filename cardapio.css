@@ -1157,3 +1157,136 @@ img {
     font-size: 17px;
   }
 }
+
+/* =====================================================
+   CORREÇÃO DOS CARDS NO CELULAR
+===================================================== */
+
+@media (max-width: 700px) {
+
+  .pagina-cardapio {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .cartao-produto {
+    display: grid;
+    grid-template-columns: 115px minmax(0, 1fr);
+    gap: 12px;
+    padding: 10px;
+    align-items: stretch;
+  }
+
+  .area-imagem-produto {
+    width: 115px;
+    min-width: 115px;
+    height: 100%;
+    min-height: 230px;
+  }
+
+  .produto-sem-foto {
+    width: 100%;
+    height: 100%;
+    min-height: 230px;
+    padding: 8px;
+    text-align: center;
+  }
+
+  .produto-sem-foto span {
+    font-size: 42px;
+  }
+
+  .produto-sem-foto small {
+    font-size: 12px;
+    line-height: 1.25;
+    letter-spacing: 1px;
+  }
+
+  .conteudo-produto {
+    min-width: 0;
+  }
+
+  .nome-produto {
+    margin: 0 0 6px;
+    font-size: 21px;
+    line-height: 1.1;
+  }
+
+  .descricao-produto {
+    margin: 0 0 10px;
+    font-size: 14px;
+    line-height: 1.35;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .opcoes-produto {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 5px;
+    width: 100%;
+  }
+
+  .opcao-produto {
+    min-width: 0;
+    min-height: 72px;
+    padding: 7px 3px;
+    border-radius: 14px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .opcao-produto span {
+    display: block;
+    font-size: 12px;
+    line-height: 1.1;
+  }
+
+  .opcao-produto strong {
+    display: block;
+    margin-top: 4px;
+    font-size: 13px;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .acoes-produto {
+    display: grid;
+    grid-template-columns: minmax(95px, 1fr) minmax(105px, 1.1fr);
+    gap: 7px;
+    margin-top: 7px;
+  }
+
+  .seletor-quantidade {
+    min-width: 0;
+    height: 52px;
+  }
+
+  .seletor-quantidade button {
+    width: 32px;
+    padding: 0;
+    font-size: 25px;
+  }
+
+  .seletor-quantidade span {
+    font-size: 20px;
+  }
+
+  .botao-adicionar-produto {
+    min-width: 0;
+    height: 52px;
+    padding: 0 8px;
+    font-size: 16px;
+    white-space: nowrap;
+  }
+}
