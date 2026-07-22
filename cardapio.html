@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Cardápio online da Cantina Roncon"
+  >
+
+  <meta name="theme-color" content="#8d1018">
+
+  <title>Cardápio | Cantina Roncon</title>
+
+  <link rel="stylesheet" href="cardapio.css">
+</head>
+
+<body>
+
+  <!-- =====================================================
+       CABEÇALHO
+  ====================================================== -->
+
+  <header class="cabecalho">
+
+    <button
+      type="button"
+      class="botao-menu"
+      id="botaoMenu"
+      aria-label="Abrir menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <a href="index.html" class="marca">
+
+      <div class="logo-miniatura">
+        <span class="logo-cantina">CANTINA</span>
+        <span class="logo-panela">♥</span>
+        <span class="logo-roncon">RONCON</span>
+      </div>
+
+      <div class="nome-marca">
+        <strong>CANTINA RONCON</strong>
+        <small>★ SABOR QUE ACOLHE ★</small>
+      </div>
+
+    </a>
+
+    <button
+      type="button"
+      class="botao-carrinho-topo"
+      id="botaoCarrinhoTopo"
+      aria-label="Abrir carrinho"
+    >
+      <span class="icone-carrinho">🛒</span>
+
+      <span
+        class="contador-carrinho"
+        id="contadorCarrinhoTopo"
+      >
+        0
+      </span>
+    </button>
+
+  </header>
+
+  <!-- =====================================================
+       CONTEÚDO PRINCIPAL
+  ====================================================== -->
+
+  <main class="pagina-cardapio">
+
+    <!-- PESQUISA -->
+
+    <section class="secao-pesquisa">
+
+      <label class="campo-pesquisa">
+
+        <span class="icone-pesquisa">⌕</span>
+
+        <input
+          type="search"
+          id="campoPesquisa"
+          placeholder="Buscar prato ou bebida..."
+          autocomplete="off"
+        >
+
+      </label>
+
+    </section>
+
+    <!-- DIA ATUAL -->
+
+    <section class="painel-dia">
+
+      <div class="dia-atual">
+
+        <span class="icone-calendario">▣</span>
+
+        <div>
+          <strong>
+            Hoje é
+            <span id="nomeDiaAtual">TERÇA-FEIRA</span>
+          </strong>
+
+          <small id="mensagemDia">
+            Pratos disponíveis hoje
+          </small>
+        </div>
+
+      </div>
+
+      <button
+        type="button"
+        class="botao-outro-dia"
+        id="botaoOutroDia"
+      >
+        Ver cardápio de outro dia
+        <span>›</span>
+      </button>
+
+    </section>
+
+    <!-- SELETOR DE DIAS -->
+
+    <section
+      class="seletor-dias"
+      id="seletorDias"
+      hidden
+    >
+
+      <button type="button" data-dia="1">
+        Segunda
+      </button>
+
+      <button type="button" data-dia="2">
+        Terça
+      </button>
+
+      <button type="button" data-dia="3">
+        Quarta
+      </button>
+
+      <button type="button" data-dia="4">
+        Quinta
+      </button>
+
+      <button type="button" data-dia="5">
+        Sexta
+      </button>
+
+      <button type="button" data-dia="6">
+        Sábado
+      </button>
+
+    </section>
+
+    <!-- AVISO DE DOMINGO -->
+
+    <section
+      class="aviso-fechado"
+      id="avisoFechado"
+      hidden
+    >
+      <span>🕒</span>
+
+      <div>
+        <strong>Hoje estamos fechados</strong>
+
+        <p>
+          Retornamos na segunda-feira com comida caseira
+          feita com carinho.
+        </p>
+      </div>
+    </section>
+
+    <!-- PRODUTOS -->
+
+    <section
+      class="lista-produtos"
+      id="listaProdutos"
+      aria-live="polite"
+    ></section>
+
+    <!-- BUSCA SEM RESULTADO -->
+
+    <section
+      class="nenhum-resultado"
+      id="nenhumResultado"
+      hidden
+    >
+      <span>🍽️</span>
+
+      <strong>Nenhum prato encontrado</strong>
+
+      <p>
+        Tente pesquisar utilizando outro nome.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- =====================================================
+       BARRA FIXA DO CARRINHO
+  ====================================================== -->
+
+  <section
+    class="barra-carrinho"
+    id="barraCarrinho"
+    hidden
+  >
+
+    <button
+      type="button"
+      class="resumo-carrinho"
+      id="abrirCarrinho"
+    >
+
+      <span class="carrinho-barra">🛒</span>
+
+      <span
+        class="contador-barra"
+        id="contadorCarrinhoBarra"
+      >
+        0
+      </span>
+
+      <span class="informacoes-carrinho">
+        <strong id="textoQuantidadeCarrinho">
+          0 itens no carrinho
+        </strong>
+
+        <small>
+          Ver pedido
+          <span>›</span>
+        </small>
+      </span>
+
+    </button>
+
+    <div class="total-barra">
+
+      <span>TOTAL</span>
+
+      <strong id="totalCarrinhoBarra">
+        R$ 0,00
+      </strong>
+
+    </div>
+
+    <button
+      type="button"
+      class="botao-finalizar"
+      id="botaoFinalizar"
+    >
+      FINALIZAR PEDIDO
+      <span>›</span>
+    </button>
+
+  </section>
+
+  <!-- =====================================================
+       FUNDO DO CARRINHO
+  ====================================================== -->
+
+  <div
+    class="fundo-modal"
+    id="fundoModal"
+    hidden
+  ></div>
+
+  <!-- =====================================================
+       PAINEL DO CARRINHO
+  ====================================================== -->
+
+  <aside
+    class="painel-carrinho"
+    id="painelCarrinho"
+    aria-hidden="true"
+  >
+
+    <header class="cabecalho-painel-carrinho">
+
+      <div>
+        <span>SEU PEDIDO</span>
+        <h2>Meu carrinho</h2>
+      </div>
+
+      <button
+        type="button"
+        id="fecharCarrinho"
+        aria-label="Fechar carrinho"
+      >
+        ×
+      </button>
+
+    </header>
+
+    <div
+      class="itens-carrinho"
+      id="itensCarrinho"
+    ></div>
+
+    <div
+      class="carrinho-vazio"
+      id="carrinhoVazio"
+    >
+      <span>🛒</span>
+
+      <strong>Seu carrinho está vazio</strong>
+
+      <p>
+        Escolha um prato e toque em adicionar.
+      </p>
+    </div>
+
+    <footer class="rodape-painel-carrinho">
+
+      <div class="linha-total">
+
+        <span>Total do pedido</span>
+
+        <strong id="totalCarrinhoPainel">
+          R$ 0,00
+        </strong>
+
+      </div>
+
+      <button
+        type="button"
+        class="botao-continuar-pedido"
+        id="continuarPedido"
+        disabled
+      >
+        Continuar pedido
+        <span>›</span>
+      </button>
+
+    </footer>
+
+  </aside>
+
+  <!-- =====================================================
+       MENU LATERAL
+  ====================================================== -->
+
+  <aside
+    class="menu-lateral"
+    id="menuLateral"
+    aria-hidden="true"
+  >
+
+    <header>
+      <strong>Cantina Roncon</strong>
+
+      <button
+        type="button"
+        id="fecharMenu"
+        aria-label="Fechar menu"
+      >
+        ×
+      </button>
+    </header>
+
+    <nav>
+      <a href="index.html">
+        Início
+      </a>
+
+      <a href="cardapio.html">
+        Cardápio
+      </a>
+
+      <button type="button" id="menuAbrirCarrinho">
+        Meu pedido
+      </button>
+
+      <a href="index.html#contato">
+        Informações e contato
+      </a>
+    </nav>
+
+  </aside>
+
+  <script src="cardapio.js"></script>
+
+</body>
+</html>
